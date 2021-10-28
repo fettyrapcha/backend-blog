@@ -1,0 +1,12 @@
+{ 
+  "scripts":{
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "apollo-server-express": "^3.4.0",
+    "express": "^4.17.1",
+    "graphql": "^15.7.1",
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14"
+  }
+}
