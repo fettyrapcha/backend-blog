@@ -10,14 +10,14 @@ const resolvers = {
     },
     Mutation: {
         createBlog: async (parent, args, info) => {
-            const {title, author,body,comments,date} = args.blog;
-            const blog= await new Blog({title, author,body,comments,date}).save();
+            const {title, author,body} = args.blog;
+            const blog= await new Blog({title, author,body}).save();
             return blog
         },
         updateBlog: async (parent, args, info) => {
             const { id } = args;
-            const {title, author,body,comments,date} = args.blog;
-            const blog= await Blog.findByIdAndUpdate(id,{title, author,body,comments,date}, {new: true});
+            const {title, author,body} = args.blog;
+            const blog= await Blog.findByIdAndUpdate(id,{title, author,body}, {new: true});
             return blog
         },
         deleteBlog: async (parent, args, info) => {

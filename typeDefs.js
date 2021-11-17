@@ -6,8 +6,7 @@ type Blog {
     title: String
     author: String
     body: String
-    comments: String
-    date: String
+    
 }
 type Query {
     getAll : [Blog]
@@ -16,8 +15,7 @@ input BlogInput{
         title: String,
         author: String,
         body: String,
-        comments: String,
-        date: String 
+        
 }
 type Mutation {
     createBlog(blog: BlogInput): Blog

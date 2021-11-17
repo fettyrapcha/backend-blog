@@ -11,62 +11,6 @@ const URL = "mongodb://fetty:fetty123@cluster0-shard-00-00.zyiuz.mongodb.net:270
 
 
 
-// const typeDefs = gql`
-//     type Blog {
-//         id: ID
-//         title: String
-//         author: String
-//         body: String
-//         comments: String
-//         date: String
-//     }
-//     type Query {
-//         getAll : [Blog]
-//     }
-//     input BlogInput{
-//             title: String,
-//             author: String,
-//             body: String,
-//             comments: String,
-//             date: String 
-//     }
-//     type Mutation {
-//         createBlog(blog: BlogInput): Blog
-//         updateBlog(id: String, blog: BlogInput): Blog
-//         deleteBlog(id: String): String
-//     }
-// `;
-// ////////////////////////// schema///////////////////////////////////
-// const Blog = require('./models/Blog');
-
-// const resolvers = {
-//     Query: {
-//         getAll : async () => {
-//            return await Blog.find()
-//         },
-
-//         },
-//         Mutation: {
-//             createBlog: async (parent, args, info) => {
-//                 const {title, author,body,comments,date} = args.blog;
-//                 const blog= await new Blog({title, author,body,comments,date}).save();
-//                 return blog
-//             },
-//             updateBlog: async (parent, args, info) => {
-//                 const { id } = args;
-//                 const {title, author,body,comments,date} = args.blog;
-//                 const blog= await Blog.findByIdAndUpdate(id,{title, author,body,comments,date}, {new: true});
-//                 return blog
-//             },
-//             deleteBlog: async (parent, args, info) => {
-//                 const { id } = args;
-//                 await Blog.findByIdAndDelete(id);
-//                 return "Deleted"
-//             },
-//     },
-// };
-
-
 
 mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true})
         .then(()=>console.log("DB Connected"))
@@ -83,9 +27,3 @@ const startServer = async () => {
     app.listen(PORT, ()=> console.log("Server is on and runinng"));
 };
 startServer()
-// const app = express();
-// const server = new ApolloServer({ typeDefs, resolvers });
-// server.applyMiddleware({app});
-
-
-// app.listen(PORT, ()=> console.log("Server is on and runinng"));
